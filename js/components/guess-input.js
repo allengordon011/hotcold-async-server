@@ -1,12 +1,18 @@
 import React from 'react';
 
-export default class GuessInput extends React.Component {
+import {connect} from 'react-redux';
+
+import * as actions from '../actions/index';
+
+export class GuessInput extends React.Component {
     constructor(props) {
       super(props);
       this.addGuess = this.addGuess.bind(this);
     }
     addGuess(){
       const guess = this.guessInput.value;
+      this.props.dispatch(actions.addGuess(guess));
+
     }
     render() {
       return (
@@ -28,3 +34,9 @@ export default class GuessInput extends React.Component {
     }
 
 }
+
+const mapStateToProps = (state, props) => ({
+  guessedNumbers: state.guessedNumbers
+});
+
+export default connect(mapStateToProps)(GuessInput);
