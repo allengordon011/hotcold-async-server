@@ -1,5 +1,7 @@
 import React from 'react';
 
+import PrevGuesses from './prev-guesses'
+
 export default class GuessInput extends React.Component {
     constructor(props) {
       super(props);
@@ -11,7 +13,7 @@ export default class GuessInput extends React.Component {
           <input type="text" className="guess-input" placeholder="Enter your Guess"/>
           <button type="submit" id="guessButton" className="button">Guess</button>
           <p>Guess #!</p>
-          <div id="prevGuesses">Previous Guesses Here</div>
+          <PrevGuesses />
         </div>
       )
     }
