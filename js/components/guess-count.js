@@ -1,10 +1,16 @@
 import React from 'react';
 
-export default function GuessCount(props) {
+import {connect} from 'react-redux'
 
-	const 
+export default function GuessCount(props) {
 	
   return (
-    <p>Guess #!</p>
+    <p>Guess #{props.stateCount}!</p>
   )
 }
+
+// const mapStateToProps = (state, props) => ({
+//   count: state.count
+// });
+
+// export default connect(mapStateToProps)(GuessCount)

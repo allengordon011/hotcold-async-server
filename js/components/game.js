@@ -1,12 +1,12 @@
 import React from 'react';
-
+import {connect} from 'react-redux';
 import GuessInput from './guess-input';
 import Feedback from './feedback';
 import GuessCount from './guess-count';
 import PrevGuesses from './prev-guesses';
 import NavBar from './nav-bar';
 
-export default class Game extends React.Component {
+export class Game extends React.Component {
   constructor(props){
     super(props);
 
@@ -16,14 +16,21 @@ export default class Game extends React.Component {
         <div>
           <NavBar />
           <h1 id="title">HOT or COLD</h1>
-          <Feedback />
+          <Feedback stateFeedback={this.props.feedback}/>
           <GuessInput />
-          <GuessCount />
+          <GuessCount stateCount={this.props.count}/>
           <PrevGuesses />
         </div>
       );
     }
 }
+
+const mapStateToProps = (state, props) => ({
+  count: state.count,
+  feedback: state.feedback
+});
+
+export default connect(mapStateToProps)(Game)
 
 //component with html layout
 //nav bar at top with 2 elements: WHAT? (left) and +NEW GAME (right)
