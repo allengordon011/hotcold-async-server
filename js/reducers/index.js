@@ -20,7 +20,7 @@ export const mainReducer = (state = emptyState, action) => {
 
 
 		if (guessDiff === 0){
-			feedback = 'You Won!';
+			feedback = 'You Won! Click new game to play again';
 		}
 		else if (guessDiff <= 10){
 			feedback = 'hot';
