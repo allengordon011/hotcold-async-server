@@ -35,5 +35,5 @@ import Game from './components/game'
 
 document.addEventListener('DOMContentLoaded', () =>
   ReactDOM.render(<Game />, document.getElementById('app')
-  );
+  )
 );
