@@ -1,8 +1,10 @@
 import React from 'react';
 
-import GuessInput from './guess-input'
-import Feedback from './feedback'
-
+import GuessInput from './guess-input';
+import Feedback from './feedback';
+import GuessCount from './guess-count';
+import PrevGuesses from './prev-guesses';
+import NavBar from './nav-bar';
 
 export default class Game extends React.Component {
   constructor(props){

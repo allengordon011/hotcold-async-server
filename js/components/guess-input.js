@@ -1,18 +1,28 @@
 import React from 'react';
 
-import PrevGuesses from './prev-guesses'
-
 export default class GuessInput extends React.Component {
     constructor(props) {
       super(props);
+      this.addGuess = this.addGuess.bind(this);
+    }
+    addGuess(){
+      const guess = this.guessInput.value;
     }
     render() {
       return (
         <div>
-          <input type="text" className="guess-input" placeholder="Enter your Guess"/>
-          <button type="submit" id="guessButton" className="button">Guess</button>
-          <p>Guess #!</p>
-          <PrevGuesses />
+          <input
+            type="text"
+            ref={ref => this.guessInput = ref}
+            className="guess-input"
+            placeholder="Enter your Guess"/>
+          <button
+            type="submit"
+            onClick={this.addGuess}
+            id="guess-button"
+            className="button">
+            Guess
+          </button>
         </div>
       )
     }
