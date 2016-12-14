@@ -18,7 +18,7 @@ import Game from './components/game'
 // })
 
 //
-// 	store.dispatch(actions.newGame())
+	store.dispatch(actions.newGame());
 // 	store.dispatch(actions.addGuess(95))
 // 	store.dispatch(actions.addGuess(85))
 // 	store.dispatch(actions.addGuess(75))
