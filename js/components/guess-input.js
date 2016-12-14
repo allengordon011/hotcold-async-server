@@ -1,5 +1,4 @@
 import React from 'react';
-
 import {connect} from 'react-redux';
 
 import * as actions from '../actions/index';
@@ -9,14 +8,16 @@ export class GuessInput extends React.Component {
       super(props);
       this.addGuess = this.addGuess.bind(this);
     }
-    addGuess(){
-      const guess = this.guessInput.value;
+    addGuess(event){
+      event.preventDefault();
+      let guess = this.guessInput.value;
       this.props.dispatch(actions.addGuess(guess));
-
+//add alerts for guesses that are invalid
     }
     render() {
       return (
         <div>
+          <form className="form" onSubmit={this.addGuess}>
           <input
             type="text"
             ref={ref => this.guessInput = ref}
@@ -24,19 +25,19 @@ export class GuessInput extends React.Component {
             placeholder="Enter your Guess"/>
           <button
             type="submit"
-            onClick={this.addGuess}
+
             id="guess-button"
             className="button">
             Guess
           </button>
+        </form>
         </div>
       )
     }
-
 }
 
-const mapStateToProps = (state, props) => ({
-  guessedNumbers: state.guessedNumbers
-});
+// const mapStateToProps = (state, props) => ({
+//   guessedNumbers: state.guessedNumbers
+// });
 
-export default connect(mapStateToProps)(GuessInput);
+export default connect()(GuessInput);
