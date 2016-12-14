@@ -40,14 +40,14 @@ describe('Feedback Component', function() {
   });
 });
 
-describe.only('PrevGuesses Component', function(){
+describe('PrevGuesses Component', function(){
   it('renders a prev-guesses div with a mapped list', function() {
     renderer.render(<PrevGuesses guessedNumbers={[1, 2, 3]} />)
 
     const result = renderer.getRenderOutput();
     // console.log(result);
     // console.log(result.props.children.props);
-    console.log(result.props.children.props.children);
+    //console.log(result.props.children);
 
     result.type.should.equal('div')
     result.props.id.should.equal('prev-guesses')
@@ -58,5 +58,12 @@ describe.only('PrevGuesses Component', function(){
     result.props.children.props.children[0].props.children.should.equal(1)
     result.props.children.props.children[1].props.children.should.equal(2)
     result.props.children.props.children[2].props.children.should.equal(3)
+
+    result.props.children.props.children[0].key.should.equal('0')
+    result.props.children.props.children[1].key.should.equal('1')
+    result.props.children.props.children[2].key.should.equal('2')
+
+    result.props.children.props.children.length.should.equal(3)
+
   });
 });
