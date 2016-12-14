@@ -19,7 +19,7 @@ export class Game extends React.Component {
           <Feedback stateFeedback={this.props.feedback}/>
           <GuessInput />
           <GuessCount stateCount={this.props.count}/>
-          <PrevGuesses />
+          <PrevGuesses guessedNumbers={this.props.guessedNumbers}/>
         </div>
       );
     }
@@ -27,7 +27,8 @@ export class Game extends React.Component {
 
 const mapStateToProps = (state, props) => ({
   count: state.count,
-  feedback: state.feedback
+  feedback: state.feedback,
+  guessedNumbers: state.guessedNumbers
 });
 
 export default connect(mapStateToProps)(Game)

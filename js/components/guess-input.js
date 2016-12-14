@@ -12,8 +12,10 @@ export class GuessInput extends React.Component {
       event.preventDefault();
       let guess = this.guessInput.value;
       this.props.dispatch(actions.addGuess(guess));
-//add alerts for guesses that are invalid
+      this.guessInput.value = "";
     }
+//add alerts for guesses that are invalid
+    
     render() {
       return (
         <div>
@@ -22,7 +24,7 @@ export class GuessInput extends React.Component {
             type="text"
             ref={ref => this.guessInput = ref}
             className="guess-input"
-            placeholder="Enter your Guess"/>
+            placeholder="Enter your Guess" />
           <button
             type="submit"
 
