@@ -6,13 +6,24 @@ const should = chai.should();
 // file paths
 // import Index from '../js/index';
 import Feedback from '../js/components/feedback';
-// import Game from '../js/components/game';
+import {Game} from '../js/components/game';
 import GuessCount from '../js/components/guess-count';
 // import GuessInput from '../js/components/guess-input';
 // import NavBar from '../js/components/nav-bar';
 import PrevGuesses from '../js/components/prev-guesses';
 
 const renderer = TestUtils.createRenderer();
+
+// describe('Game Component', function() {
+//   it('renders the game',  function() {
+//   	renderer.render(<Game />)
+//
+//   	const result = renderer.getRenderOutput();
+//   	// console.log(result);
+//
+//
+//   });
+// });
 
 describe('GuessCount Component', function() {
   it('renders a p with guess count',  function() {

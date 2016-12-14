@@ -13,4 +13,11 @@ describe('actions', function(){
 		}
 	actions.addGuess(num).should.eql(expectedAddGuess)
 	})
+	it('should start a new game', function(){
+		const ourAction = actions.newGame();
+		// console.log(ourAction)
+		ourAction.type.should.equal('NEW_GAME')
+		ourAction.magicNum.should.be.a('number')
+		ourAction.magicNum.should.be.within(1,100);
+	})
 })
