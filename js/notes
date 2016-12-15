@@ -8,10 +8,18 @@ Add two async actions (and their sync counterparts):
 
 Dispatch the actions from your components so you keep track of the fewest guesses
 
-FETCH FEWEST GUESSES -
-- Make a get request
-	- If OK >> sync action to update state with new fewestGuesses count
-	- If error >> error
+SAVE FEWEST GUESSES
+when someone wins make POST request w/ guess count
+- if you get 201 response
+	- SYNC ACTION: update fewest guesses in store, send feedback
+- if you get 200
+	- SYNC ACTION: send feedback
+- if you get error
+	- SYNC ACTION: error message, send feedback
 
-SAVE FEWEST GUESSES -
-- Make a post request
+FETCH FEWEST GUESSES
+when you open page or start new game make GET request
+- if you get an OK response
+	- SYNC ACTION: update fewest guesses in store
+- if you get an ERROR response
+	- SYNC ACTION: error message
