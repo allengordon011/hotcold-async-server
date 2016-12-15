@@ -1,0 +1,17 @@
+Add a fewestGuesses property to your Redux state
+
+Update your app to display the fewestGuesses state in one of your components
+
+Add two async actions (and their sync counterparts):
+- fetchFewestGuesses which should fetch the fewest guesses from the endpoint
+- saveFewestGuesses which should send a score to the fewest guesses endpoint
+
+Dispatch the actions from your components so you keep track of the fewest guesses
+
+FETCH FEWEST GUESSES -
+- Make a get request
+	- If OK >> sync action to update state with new fewestGuesses count
+	- If error >> error
+
+SAVE FEWEST GUESSES -
+- Make a post request

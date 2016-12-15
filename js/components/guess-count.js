@@ -3,14 +3,12 @@ import React from 'react';
 import {connect} from 'react-redux'
 
 export default function GuessCount(props) {
-	
+
   return (
-    <p>Guess #{props.stateCount}!</p>
+		<div>
+			<p>Beat your record of # guesses!</p>
+			<p>Guess #{props.stateCount}!</p>
+		</div>
+
   )
 }
-
-// const mapStateToProps = (state, props) => ({
-//   count: state.count
-// });
-
-// export default connect(mapStateToProps)(GuessCount)

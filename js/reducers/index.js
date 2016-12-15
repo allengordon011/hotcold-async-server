@@ -4,13 +4,14 @@ const emptyState = {
 	guessedNumbers: [],
 	answer: 0,
 	feedback: 'make a guess',
-	count: 0
+	count: 0,
+	fewestGuesses: Infinity
 }
 
 export const mainReducer = (state = emptyState, action) => {
 
 	if (action.type === actions.ADD_GUESS) {
-		
+
 		let feedback = ""
 		let guessDiff = Math.abs(action.num - state.answer);
 		let count = state.count
@@ -33,7 +34,7 @@ export const mainReducer = (state = emptyState, action) => {
 		}
 		else {
 			feedback = 'cold'
-		} 
+		}
 		count ++
 
 		return { ...state, guessedNumbers: [...state.guessedNumbers, action.num], feedback, count}
@@ -43,8 +44,3 @@ export const mainReducer = (state = emptyState, action) => {
 	}
 	return state;
 };
-
-
-
-
-
