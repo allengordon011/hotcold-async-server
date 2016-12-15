@@ -37,10 +37,19 @@ export const mainReducer = (state = emptyState, action) => {
 		}
 		count ++
 
-		return { ...state, guessedNumbers: [...state.guessedNumbers, action.num], feedback, count}
+		return { ...state,
+			guessedNumbers: [...state.guessedNumbers, action.num],
+			feedback,
+			count}
 	}
 	if(action.type === actions.NEW_GAME) {
-		return { ...state, answer: action.magicNum, guessedNumbers: [], feedback: 'make a guess', count: 0 }
+		return { ...state,
+			answer: action.magicNum,
+			guessedNumbers: [],
+			feedback: 'make a guess',
+			count: 0,
+			fewestGuesses: 99}
 	}
+	
 	return state;
 };

@@ -11,6 +11,7 @@ export class NavBar extends React.Component {
   }
   newGame(event){
     event.preventDefault();
+    this.props.dispatch(actions.fetchFewestGuesses());
     this.props.dispatch(actions.newGame());
   }
   render() {

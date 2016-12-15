@@ -12,4 +12,28 @@ export const addGuess = num => ({
 	num: num
 });
 
-export const FETCH
+export const FETCH_FEWEST_GUESSES = 'FETCH_FEWEST_GUESSES';
+export const fetchFewestGuesses = fewestGuesses => dispatch => {
+	const url = "localhost:8081/fewest-guesses";
+	return fetch(url).then(response => {
+		if (!response.ok) {
+			const error = new Error(response.statusText)
+			error.response = response
+			throw error;
+		}
+		return response;
+	})
+	.then(response => response.json())
+	.then(data =>
+		dispatch(fetchSuccess(fewestGuesses))
+	)
+	.catch(error =>
+		dispatch(fetchError(fewestGuesses, error))
+	)
+};
+
+export const FETCH_SUCCESS = 'FETCH_SUCCESS';
+export const fetchSuccess = num => ({
+	type: FETCH_SUCCESS,
+	num
+});

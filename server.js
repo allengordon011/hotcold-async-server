@@ -15,7 +15,7 @@ var jsonParser = bodyParser.json();
 // but keep here for reference
 //app.use(express.static('build'));
 
-let fewestGuesses = Infinity;
+let fewestGuesses = 6;
 
 app.get('/fewest-guesses', function(req, res) {
     //return fewest guesses
