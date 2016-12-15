@@ -1,4 +1,4 @@
-
+import 'isomorphic-fetch';
 
 export const NEW_GAME = 'NEW_GAME';
 export const newGame = () => ({
@@ -13,8 +13,8 @@ export const addGuess = num => ({
 });
 
 export const FETCH_FEWEST_GUESSES = 'FETCH_FEWEST_GUESSES';
-export const fetchFewestGuesses = fewestGuesses => dispatch => {
-	const url = "localhost:8081/fewest-guesses";
+export const fetchFewestGuesses = dispatch => {
+	const url = "http://localhost:8081/fewest-guesses";
 	return fetch(url).then(response => {
 		if (!response.ok) {
 			const error = new Error(response.statusText)

@@ -10,6 +10,11 @@ const emptyState = {
 
 export const mainReducer = (state = emptyState, action) => {
 
+	if (action.type === actions.FETCH_SUCCESS) {
+		return [...state,
+		fewestGuesses: action.num]
+
+	}
 	if (action.type === actions.ADD_GUESS) {
 
 		let feedback = ""
@@ -50,6 +55,6 @@ export const mainReducer = (state = emptyState, action) => {
 			count: 0,
 			fewestGuesses: 99}
 	}
-	
+
 	return state;
 };
