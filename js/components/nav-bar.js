@@ -1,5 +1,6 @@
 import React from 'react';
 import {connect} from 'react-redux';
+import { Navbar } from 'react-bootstrap';
 
 import * as actions from '../actions/index';
 
@@ -11,17 +12,17 @@ export class NavBar extends React.Component {
   }
   newGame(event){
     event.preventDefault();
-    this.props.dispatch(actions.fetchFewestGuesses());
+    // this.props.dispatch(actions.fetchRecord());
     this.props.dispatch(actions.newGame());
   }
   render() {
     return(
-      <nav>
+      <Navbar>
         <ul>
         <li>WHAT?</li>
         <a href="" onClick={this.newGame}><li>+ NEW GAME</li></a>
         </ul>
-      </nav>
+    </Navbar>
     )
   }
 }

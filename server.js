@@ -15,31 +15,31 @@ var jsonParser = bodyParser.json();
 // but keep here for reference
 //app.use(express.static('build'));
 
-let fewestGuesses = 6;
+let record;
 
-app.get('/fewest-guesses', function(req, res) {
-    //return fewest guesses
-    return res.json(fewestGuesses);
+app.get('/record', function(req, res) {
+    //return record
+    console.log('res: ', res.params.record)
+    return res.status(202).json({record : record});
 });
 
-app.post('/fewest-guesses', jsonParser, function(req, res) {
-    // update fewestGuesses (count) here
+app.post('/record', jsonParser, function(req, res) {
+    // update record (count) here
     // remember to compare it to the current guesess to determine which is lowest
-    console.log(req.body.guess)
-
-    if (!req.body.guess) {
+    if (!req.body.record) {
       return res.sendStatus(400);
     }
-    if (req.body.guess < fewestGuesses) {
-      fewestGuesses = req.body.guess;
-      return res.sendStatus(201).json(fewestGuesses);
-    }
+    // if (req.body.record < record) {
+    //   record = req.body.record;
+    //   return res.sendStatus(201).json(record);
+    // }
     else {
-      return res.sendStatus(200).json(fewestGuesses);
+        console.log('posted record: ', req.body.record);
+        return res.sendStatus(200).json(req.body.record);
     }
 });
 
 const PORT = 8081;
 app.listen(PORT, function () {
-    console.log('Example app listening on localhost:' + PORT);
+    console.log('Hot n Cold app listening on localhost:' + PORT);
 });

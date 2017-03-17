@@ -12,23 +12,46 @@ export const addGuess = num => ({
 	num: num
 });
 
-export const FETCH_FEWEST_GUESSES = 'FETCH_FEWEST_GUESSES';
-export const fetchFewestGuesses = dispatch => {
-	const url = "http://localhost:8081/fewest-guesses";
+export const ADD_RECORD = 'ADD_RECORD';
+export const addRecord = (data) => dispatch => {
+	let obj = JSON.stringify({record : data});
+	console.log('post data: ', obj)
+	const url = "http://localhost:8081/record";
+	fetch(url, {
+	  method: 'POST',
+	  headers: {
+	    'Content-Type': 'application/json'
+	  },
+	  body: obj
+	  })
+		.catch(error =>
+			dispatch(fetchError(data, error))
+		)
+}
+
+export const FETCH_RECORD = 'FETCH_RECORD';
+export const fetchRecord = () => dispatch => {
+	const url = "http://localhost:8081/record";
 	return fetch(url).then(response => {
-		if (!response.ok) {
-			const error = new Error(response.statusText)
-			error.response = response
-			throw error;
-		}
-		return response;
+		// if (!response.ok) {
+		// 	const error = new Error(response.statusText)
+		// 	error.response = response
+		// 	throw error;
+		// }
+		console.log('RECORD: ', response.body.record)
+
+		// return response;
 	})
-	.then(response => response.json())
-	.then(data =>
-		dispatch(fetchSuccess(fewestGuesses))
-	)
+	// .then(response =>
+	// 	// console.log('hey! response:', response)
+	// 	response.json()
+	// )
+	// .then(data =>
+	// 	console.log('response data: ', data)
+	// 	// dispatch(fetchSuccess(data))
+	// )
 	.catch(error =>
-		dispatch(fetchError(fewestGuesses, error))
+		dispatch(fetchError(null, error))
 	)
 };
 
@@ -37,3 +60,9 @@ export const fetchSuccess = num => ({
 	type: FETCH_SUCCESS,
 	num
 });
+
+const FETCH_ERROR = 'FETCH_ERROR';
+const fetchError = err => ({
+	type: FETCH_ERROR,
+	err
+})

@@ -17,8 +17,8 @@ import Game from './components/game'
 //     console.log(store.getState());
 // })
 
-//
-	store.dispatch(actions.newGame());
+// store.dispatch(actions.addRecord(7));
+store.dispatch(actions.newGame());
 // 	store.dispatch(actions.addGuess(95))
 // 	store.dispatch(actions.addGuess(85))
 // 	store.dispatch(actions.addGuess(75))
