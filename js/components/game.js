@@ -13,13 +13,11 @@ import {Grid, Col, Row} from 'react-bootstrap';
 export class Game extends React.Component {
     constructor(props) {
         super(props);
-        // console.log('game props: ', props)
 
     }
-    componentDidMount(){
-        // console.log('guessed numbers length: ', this.props.guessedNumbers.length);
-        // console.log('fetched record: ', this.props.dispatch(fetchRecord()));
-    }
+    // componentWillMount(){
+    //     this.props.dispatch(fetchRecord());
+    // }
     render() {
         return (
             <div>
@@ -49,12 +47,3 @@ export class Game extends React.Component {
 const mapStateToProps = (state, props) => ({count: state.count, feedback: state.feedback, guessedNumbers: state.guessedNumbers, record: state.record});
 
 export default connect(mapStateToProps)(Game)
-
-//component with html layout
-//nav bar at top with 2 elements: WHAT? (left) and +NEW GAME (right)
-//title HOT or COLD
-//container for the game elements
-//feedback element banner
-//guess input field
-//guess count field
-//prev guesses displayed in <ul>

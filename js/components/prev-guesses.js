@@ -9,12 +9,14 @@ function PrevGuesses(props) {
 			<li key={index}>{num}</li>
 		);
 	});
-
+	// console.log("guesses length: ", props.guessedNumbers.length)
+	if(props.guessedNumbers.length > 0){
 	return (
 		<div id="prev-guesses">
-			<ul>Previous Guesses: {list}</ul>
+			<h3>Previous Guesses:</h3>
+			<ul>{list}</ul>
 		</div>
-	)
+	)} else return <div></div>
 }
 
 const mapStateToProps = (state, props) => ({

@@ -8,12 +8,12 @@ import * as actions from '../actions/index';
 export class GuessInput extends React.Component {
     constructor(props) {
       super(props);
-      this.addGuess = this.addGuess.bind(this);
+      this.checkGuess = this.checkGuess.bind(this);
     }
-    addGuess(event){
+    checkGuess(event){
       event.preventDefault();
       let guess = ReactDOM.findDOMNode(this.textInput).value;
-      this.props.dispatch(actions.addGuess(guess));
+      this.props.dispatch(actions.checkGuess(guess));
       event.target.input.value = "";
     }
 //add alerts for guesses that are invalid
@@ -21,7 +21,7 @@ export class GuessInput extends React.Component {
     render() {
       return (
         <div>
-          <form className="form" onSubmit={this.addGuess}>
+          <form className="form" onSubmit={this.checkGuess}>
           <FormControl
             type="text"
             ref={(input) => { this.textInput = input; }}

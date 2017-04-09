@@ -5,21 +5,19 @@ import { Navbar } from 'react-bootstrap';
 import * as actions from '../actions/index';
 
 export class NavBar extends React.Component {
-//build buttons
   constructor(props){
     super(props);
     this.newGame = this.newGame.bind(this);
   }
   newGame(event){
     event.preventDefault();
-    // this.props.dispatch(actions.fetchRecord());
+    this.props.dispatch(actions.fetchRecord());
     this.props.dispatch(actions.newGame());
   }
   render() {
     return(
       <Navbar>
         <ul>
-        <li>WHAT?</li>
         <a href="" onClick={this.newGame}><li>+ NEW GAME</li></a>
         </ul>
     </Navbar>
