@@ -7,6 +7,7 @@ export const newGame = () => ({
 	magicNum: Math.floor(Math.random() * 100) + 1
 	});
 
+
 export const ADD_GUESS = 'ADD_GUESS';
 export const addGuess = (num, feedback, count) => ({
 	type: ADD_GUESS,
